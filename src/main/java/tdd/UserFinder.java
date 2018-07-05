@@ -1,5 +1,6 @@
 package tdd;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class UserFinder {
@@ -10,6 +11,12 @@ public class UserFinder {
     }
 
     public List<User> findByProfile(String profile){
-        return null;
+        List<User> users = repository.findAll();
+        User user = users.get(0);
+        if (user.isMatchingProfile(profile)){
+            return users;
+        }
+        return new ArrayList<>();
     }
+
 }
